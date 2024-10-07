@@ -5,6 +5,7 @@ import axios from "axios";
 const app = express();
 const port = 3000;
 
+app.set("view engine", "ejs"); // Set EJS as the template engine
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -31,6 +32,14 @@ app.post("/", async (req, res) => {
       `https://bored-api.appbrewery.com/filter?type=${type}&participants=${participants}`
     );
     const result = response.data;
+
+    if (result.length === 0) {
+      res.render("solution.ejs", {
+        error: "No activities that match your criteria.",
+      });
+      return;
+    }
+
     console.log(result);
     res.render("solution.ejs", {
       data: result[Math.floor(Math.random() * result.length)],
