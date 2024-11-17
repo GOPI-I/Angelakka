@@ -4,12 +4,12 @@
     box-sizing: border-box;
     font-family: sans-serif;
 }
-.container{
+.containers{
     width: 100vw;
     min-height:100vh;
     background: #ced8ff;
     transition: 0.5s;
 }
-.container.dark{
+.containers.dark{
     background: #222;
 }

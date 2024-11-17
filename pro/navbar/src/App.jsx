@@ -9,7 +9,7 @@ const App = () => {
 
   },[theme])
   return (
-    <div className={`container ${theme}`}>
+    <div className={`containers ${theme}`}>
       <Navbar theme={theme} setTheme={setTheme}/>
       <div>
       <Layout/>

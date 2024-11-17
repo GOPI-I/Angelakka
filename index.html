@@ -3,9 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Responsive Layout with Media Queries</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            padding: 20px;
+            background-color: lightgray;
+        }
+        .box {
+            background-color: cornflowerblue;
+            color: white;
+            padding: 20px;
+            margin: 10px 0;
+        }
+
+        /* Default styles (Mobile first) */
+        .box {
+            width: 100%;
+        }
+
+        /* Media query for screens wider than 768px (Tablets and above) */
+        @media (min-width: 768px) {
+            .box {
+                width: 48%;
+                float: left;
+                margin: 1%;
+            }
+        }
+
+        /* Media query for screens wider than 1024px (Desktops) */
+        @media (min-width: 1024px) {
+            .box {
+                width: 31%;
+                float: left;
+                margin: 1%;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="box">Box 1</div>
+        <div class="box">Box 2</div>
+        <div class="box">Box 3</div>
+        <div class="box">Box 4</div>
+    </div>
 </body>
 </html>
