@@ -1,5 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+import FlightDesign from './FlightDesign';
+import HotelDesign from './HotelDesign';
+import ExpenseDesign from './ExpenseDesign';
 
 const data = [
   "Flight",
@@ -76,18 +79,21 @@ const Right = styled.div`
   
 `
 const Works = () => {
+  const [work,setWork] = useState("Flight")
   return (
     <Section>
       <Container>
         <Left>
           <List>
             {data.map(item =>(
-              <ListItem key={item} text={item}>{item}</ListItem>
+              <ListItem key={item} text={item} onClick={()=>setWork(item)}>{item}</ListItem>
 
             ))}
           </List>
         </Left>
-        <Right></Right>
+        <Right>
+          {work === "Flight" ? (<FlightDesign/>) : work === "Hotel" ? (<HotelDesign/>) : (<ExpenseDesign/>)}
+        </Right>
       </Container>
     </Section>
   )
